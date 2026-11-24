@@ -1,0 +1,11 @@
+pipeline:
+  id: harnessdemo_01
+  name: harnessdemo_01
+  description: Simple hello world pipeline that prints a greeting.
+  tags:
+    ai_generated: ""
+  stages:
+    - name: hello
+      steps:
+        - run:
+            script: echo "hello world"
