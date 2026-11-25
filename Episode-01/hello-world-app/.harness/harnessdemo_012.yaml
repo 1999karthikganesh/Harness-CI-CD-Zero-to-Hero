@@ -48,16 +48,17 @@
 
 pipeline:
   name: harnessdemo_012
+  repo: 
+    name: 1999karthikganesh/Harness-CI-CD-Zero-to-Hero
+    connector: connector_Github
   stages:
       - name: dev
         steps:
-          - name: clone_repo
-            clone:
-              repo: 1999karthikganesh/Harness-CI-CD-Zero-to-Hero
-              connector: connector_Github
-              ref:
-                type: branch
-                name: master
+          # - name: clone_repo
+          #   clone:
+          #     ref:
+          #       type: branch
+          #       name: master
           - name: Run_1
             run: |
               echo "=== Building Hello World (VM Pool) ==="
