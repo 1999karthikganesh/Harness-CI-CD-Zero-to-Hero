@@ -1,0 +1,63 @@
+# pipeline:
+#   name: harnessdemo_012
+#   identifier: harnessdemo_012
+#   # CHANGE THIS: Your project ID (find in URL after /projects/)
+#   projectIdentifier: default_project
+#   # CHANGE THIS: Your organization name
+#   orgIdentifier: default
+#   tags: {}
+#   properties:
+#     ci:
+#       codebase:
+#         # CHANGE THIS: Your GitHub connector
+#         connectorRef: connector_Github
+#         # CHANGE THIS: Your repo name
+#         repoName: 1999karthikganesh/Harness-CI-CD-Zero-to-Hero
+#         build: <+input>
+#   stages:
+#     - stage:
+#         name: dev
+#         identifier: dev
+#         description: "Build using VM Pool"
+#         type: CI
+#         spec:
+#           cloneCodebase: true
+#           platform:
+#             os: linux
+#             arch: AMD64
+#           runtime:
+#             type: Cloud
+#             spec: {}
+#           execution:
+#             steps:
+#               - step:
+#                   type: Run
+#                   name: Build and Run
+#                   identifier: build_and_run
+#                   spec:
+#                     shell: Sh
+#                     command: |-
+#                       echo "=== Building Hello World (VM Pool) ==="
+#                       cd Episode-01/hello-world-app
+#                       mvn clean package -q
+#                       echo ""
+#                       echo "=== Running the App ==="
+#                       java -jar target/hello-world-1.0.0.jar
+#                       echo ""
+#                       echo "=== Pipeline Success! ==="
+
+pipeline:
+  name: harnessdemo_012
+  stages:
+      - name: dev
+        steps:
+          - name: Run_1
+            run: |
+              echo "=== Building Hello World (VM Pool) ==="
+              cd Episode-01/hello-world-app
+              mvn clean package -q
+              echo ""
+              echo "=== Running the App ==="
+              java -jar target/hello-world-1.0.0.jar
+              echo ""
+              echo "=== Pipeline Success! ==="
