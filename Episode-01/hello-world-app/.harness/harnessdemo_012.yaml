@@ -48,9 +48,9 @@
 
 pipeline:
   name: harnessdemo_012
-  repo: 
-    name: 1999karthikganesh/Harness-CI-CD-Zero-to-Hero
-    connector: connector_Github
+  # repo: 
+  #   name: 1999karthikganesh/Harness-CI-CD-Zero-to-Hero
+  #   connector: connector_Github
   stages:
       - name: dev
         steps:
@@ -61,8 +61,9 @@ pipeline:
           #       name: master
           - name: Run_1
             run: |
+              git clone 1999karthikganesh/Harness-CI-CD-Zero-to-Hero
+              cd Harness-CI-CD-Zero-to-Hero Episode-01/hello-world-app
               echo "=== Building Hello World (VM Pool) ==="
-              cd Episode-01/hello-world-app
               mvn clean package -q
               echo ""
               echo "=== Running the App ==="
